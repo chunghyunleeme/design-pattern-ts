@@ -1,2 +1,1 @@
-const str: string = 'hello world';
-
+import Grimpan from './grimpan.js';
