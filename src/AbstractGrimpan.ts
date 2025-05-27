@@ -6,6 +6,5 @@ export abstract class Grimpan {
     }
 
     abstract initialize(): void;
-    abstract initializeMenu(): {}
     static getInstance(){}
 }

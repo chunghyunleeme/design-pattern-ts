@@ -1,22 +1,10 @@
-import {GrimpanFactory} from "./AbstractGrimpanFactory";
-import { Grimpan } from './AbstractGrimpan';
-import ChromeGrimpan from "./ChromeGrimpan";
-import {IEGrimpan} from "./IEGrimpan";
-
-class ChromeGrimpanFactory extends GrimpanFactory {
-    static override createGrimpan(): Grimpan {
-        return ChromeGrimpan.getInstance();
-    }
-}
-
-class IEGrimpanFactory extends GrimpanFactory {
-    static override createGrimpan(): Grimpan {
-        return IEGrimpan.getInstance();
-    }
-}
+import {ChromeGrimpanFactory, GrimpanFactory} from "./GrimpanFactory";
 
 function main(factory: typeof GrimpanFactory){
     const grimpan = factory.createGrimpan();
+    const grimpanMenu = factory.createGrimpanMenu(grimpan);
     grimpan.initialize();
-    grimpan.initializeMenu();
+    grimpanMenu.initialize();
 }
+
+main(ChromeGrimpanFactory);
